@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+*,
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Mochiy Pop One', sans-serif;
+}
+:root{
+    --MAIN-BG-COLOR: #FFE0B2;
+    --FONT-COLOR: #C7520D;
+    --BUTTON-COLOR: #5D4038;
+    --BUTTON-TEXT-COLOR: #F79A13;
+    --FONT-SIZE-BIG: clamp(0.5rem, 2vw, 2rem);
+    --FONT-SIZE: clamp(1rem, 2vh, 1rem);
+    --PADDING: var(--FONT-SIZE)
+}
+body{
+    background: var(--MAIN-BG-COLOR);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+}
+figcaption{
+    position: absolute;
+    display: none;
+}
+.display_text{
+    color: var(--FONT-COLOR);
+    font-size: var(--FONT-SIZE-BIG);
+}
+
+/* Rock, Scissor, Paper, and Restart Button */
+.button, #restart-button{
+    border: 0;
+    cursor: pointer;
+    background-color: var(--BUTTON-COLOR);
+    color: var(--BUTTON-TEXT-COLOR);
+    font-size: var(--FONT-SIZE-BIG);
+    width: 100%;
+    height: 2em;
+    border-radius: 1em;
+}
+.container{
+    width: 90vw;
+    height: 100%;
+    margin: auto;
+}
+.scores__your-score, .scores__computer-score, .display__result{
+    font-size: var(--FONT-SIZE);
+}
+
+/* Scores */
+.scores{
+    display: flex;
+    justify-content: space-between;
+    gap: var(--PADDING);
+    padding: var(--PADDING);
+}
+
+/* Display Container*/
+.display{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--PADDING);
+    padding: var(--PADDING);
+}
+.display__user_container{
+    grid-column: 2 / 4;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 0.2em;
+}
+.display__computer_container{
+    grid-column: 4 / 6;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 0.2em;
+}
+.display__result_container{
+    grid-column: 1 / 7;
+    text-align: center;
+}
+.display__message-box_container{
+    grid-column: 1 / 7;
+    text-align: center; 
+    height: 3rem;
+}
+.display__pick{
+    width: clamp(7rem, 25vw, 20rem);
+    height: auto;
+}
+:is(.display__pick_text, .display__choices){
+    color: var(--BUTTON-COLOR);
+}
+.display__choices{
+    font-size: var(--FONT-SIZE-BIG);
+} 
+.display__pick_text{
+    height: 2rem;
+    font-size: clamp(0.3rem, 2vw, 1rem);
+}
+
+/* Buttons */
+.buttons-container{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--PADDING);
+    padding: var(--PADDING);
+    margin-top: -5.5rem;
+}
+.restart{
+    grid-column: 5 / 7;
+}
+.buttons{
+    grid-column: 1 / 7;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--PADDING);
+}
+/* EXTRA SMALL SCREEN */
+@media screen and (max-width: 481px) {
+    .display{
+        gap: 0;
+    }
+    .container{
+        width: 100%;
+    }
+    .display__user_container{
+        grid-column: 1 / 4;
+    }
+    .display__computer_container{
+        grid-column: 4 / 7;
+    }
+    .buttons-container{
+        gap: 0.5rem;
+    }
+    .buttons{
+        gap: 0.5rem;
+    }
+    .button, #restart-button{
+        width: 100%;
+        height: 2.5em;
+    }
+    .button, #restart-button{
+        height: 2.5em;
+    }
+    .display__user_container{
+        gap: 0.5rem;
+    }
+    .display__computer_container{
+        gap: 0.5rem;
+    }
+}
+/* SMALL SCREEN */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .display{
+        gap: 0;
+    }
+    .display__user_container{
+        grid-column: 1 / 4;
+    }
+    .display__computer_container{
+        grid-column: 4 / 7;
+    }
+    .buttons-container{
+        gap: 0.5rem;
+    }
+    .buttons{
+        gap: 0.5rem;
+    }
+    .button, #restart-button{
+        height: 2.5em;
+    }
+    .display__user_container{
+        gap: 0.5rem;
+    }
+    .display__computer_container{
+        gap: 0.5rem;
+    }
+}
+/* MEDIUM SCREEN */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .display{
+        gap: 0;
+    }
+    .display__user_container{
+        grid-column: 1 / 4;
+    }
+    .display__computer_container{
+        grid-column: 4 / 7;
+    }
+    .button, #restart-button{
+        height: 2.5em;
+    }
+}
+/* LARGE SCREEN */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .display__user_container{
+        grid-column: 1 / 4;
+    }
+    .display__computer_container{
+        grid-column: 4 / 7;
+    }
+}
+/* EXTRA LARGE SCREEN */
+@media screen and (min-width: 1201px) {
+
+}
+  
+/* MOBILE DEVICE LANDSCAPE */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4){
+
+}

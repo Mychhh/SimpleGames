@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- JavaScript -->
+    <script src="index.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="scores">
+            <div class="scores__your-score">
+                <h1 class="display_text">
+                    Your score : <span id="your-score">0</span> / 5
+                </h1>
+            </div>
+            <div class="scores__computer-score">
+                <h1 class="display_text">
+                    Computer score : <span id="computer-score">0</span> / 5
+                </h1>
+            </div>
+        </div>
+
+        <div class="display">
+            <div class="display__user_container">
+                <h1 class="display__choices">Your choice</h1>
+                <figure>
+                    <img src="./Img/Loader.png" alt="Computer-Choice" width="200px" id="display__user-pick" class="display__pick">
+                    <figcaption>Loader Image</figcaption>
+                </figure>
+                <div class="display__pick_text">
+                    <h3 id="display__your-choice"></h3>
+                </div>
+            </div>
+            <div class="display__computer_container">
+                <h1 class="display__choices">Computer choice</h1>
+                <figure>
+                    <img src="./Img/Loader.png" alt="Computer-Choice" width="200px" id="display__computer-pick" class="display__pick">
+                    <figcaption>Loader Image</figcaption>
+                </figure>
+                <div class="display__pick_text">
+                    <h3 id="display__computer-choice"></h3>
+                </div>
+            </div>
+            <div class="display__result_container">
+                <h1 class="display_text" id="display__result">Pick a choice</h1>
+            </div>
+            <!-- Display result when user wins or lose -->
+            <div class="display__message-box_container">
+                <h1 class="display_text" id="display__message-box"></h1>
+            </div>
+        </div>
+
+        <div class="buttons-container">
+            <div class="restart">
+                <button id="restart-button" type="button">Restart</button>
+            </div>
+
+            <div class="buttons">
+                <button class="button" id="Rock" type="button">Rock</button>
+                <button class="button" id="Scissor" type="button">Scissor</button>
+                <button class="button" id="Paper" type="button">Paper</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
