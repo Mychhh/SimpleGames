@@ -5,6 +5,8 @@ const backgroundMusicImage = document.querySelector('.audio__button_img')
 const backgroundMusicButton = document.querySelector('.audio__button')
 const backgroundMusic = document.getElementById('background_audio')
 
+backgroundMusic.volume = 0.3
+backgroundMusic.duration - 2
 const controlBackgroundMusic = () => {
     if(backgroundMusic.paused){
         backgroundMusic.play()
@@ -19,6 +21,4 @@ const controlBackgroundMusic = () => {
     }
 }
 
-
 backgroundMusicButton.addEventListener('click', controlBackgroundMusic)
-

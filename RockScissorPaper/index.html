@@ -81,9 +81,21 @@
 
         <button type="button" class="audio__button"><img src="./Img/audio-on.svg" alt="audio-on-or-off" class="audio__button_img" width="30px" height="30px"></button>
 
-        <!-- controls autoplay loop -->
-        <audio id="background_audio" autoplay play loop>
+        <!-- background music -->
+        <audio id="background_audio" autoplay play loop autostart=true>
             <source src="./Audio/Sponge Cave Spelunking - Yoshi's Woolly World (OST).mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- winner audio -->
+        <audio id="winner_audio">
+            <source src="./Audio/WIN_sound_effect_no_copyright.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- loser audio -->
+        <audio id="loser_audio">
+            <source src="./Audio/Video_Game_Lose_Sound_Effect_No_Copyright__Funny_Game_Lose_Tone.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>

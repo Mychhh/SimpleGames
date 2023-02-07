@@ -29,16 +29,44 @@
 @keyframes rotateAudioButtonPositive {
     0%{
         transform: rotate(0deg);
+        border-radius: 0%;
+    }
+    25%{
+        border-radius: 25%;
+    }
+    50%{
+        border-radius: 50%;
+    }
+    75%{
+        border-radius: 25%;
+    }
+    90%{
+        border-radius: 10%;
     }
     100%{
         transform: rotate(360deg);
+        border-radius: 0%;
     }
 }
 @keyframes rotateAudioButtonNegative {
     0%{
         transform: rotate(0deg);
+        border-radius: 0%;
+    }
+    25%{
+        border-radius: 25%;
+    }
+    50%{
+        border-radius: 50%;
+    }
+    75%{
+        border-radius: 25%;
+    }
+    90%{
+        border-radius: 10%;
     }
     100%{
         transform: rotate(-360deg);
+        border-radius: 0%;
     }
 }

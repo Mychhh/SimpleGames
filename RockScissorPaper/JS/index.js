@@ -5,6 +5,7 @@ const resultDisplay = document.getElementById('display__result')
 // UserP Pic'k
 const userPick = document.getElementById('display__user-pick')
 const computerPick = document.getElementById('display__computer-pick')
+const displayPick = document.querySelectorAll('.display__pick')
 
 const buttonsRSP = document.querySelectorAll('.button')
 const restartButton = document.getElementById('restart-button')
@@ -12,6 +13,12 @@ const restartButton = document.getElementById('restart-button')
 const yourScoreDisplay = document.getElementById('your-score')
 const computerScoreDisplay = document.getElementById('computer-score')
 const displayMessage = document.getElementById('display__message-box')
+
+// Winner and Loser audio
+const winnerAudio = document.getElementById('winner_audio')
+const loserAudio = document.getElementById('loser_audio')
+// Background music
+// const indexBackgroundMusic = document.getElementById('background_audio')
 
 // Score Declaration
 let userScore = 0
@@ -23,6 +30,8 @@ let userChoiceImgSrc
 let computerChoice
 let computerImgSrc
 let result
+
+let isChosenClick = true
 
 // Adds event listener to all buttons and choose what choice they want
 buttonsRSP.forEach(buttonRSP => buttonRSP.addEventListener('click', (e) => {
@@ -45,21 +54,20 @@ buttonsRSP.forEach(buttonRSP => buttonRSP.addEventListener('click', (e) => {
     }
     userPick.src = userChoiceImgSrc
 
-    // removes and adds class list to make an animation
-    computerPick.classList.add('active_pick')
-    userPick.classList.add('active_pick')
-
-    // computerPick.classList.remove('active_pick')
-    // userPick.classList.remove('active_pick')
-
     if(userScore === 5){
         displayMessage.innerHTML = 'You Win'
         DisabledButtons()
+        winnerAudio.play()
     }else if(computerScore === 5){
         displayMessage.innerHTML = 'Computer Win'
         DisabledButtons()
+        loserAudio.play()
     }
 
+    // Animation for display pic
+    AnimationOnChosenPick()
+    // JavaScript is Madman
+    isChosenClick ? isChosenClick = !isChosenClick : isChosenClick = !isChosenClick
 }))
 
 //Gets generated choice
@@ -83,9 +91,10 @@ const generateComputerChoice = () => {
     }
     computerChoiceDisplay.innerHTML = computerChoice
     computerPick.src = computerImgSrc
+
 }
 
-//Gets the result of the game
+//Gets the result bato pick
 const getResult = () => {
     if(userChoice === computerChoice){
         result = "It's a draw"
@@ -135,6 +144,11 @@ restartButton.addEventListener('click', () => {
     displayMessage.innerHTML = ""
 
     EnabledButtons()
+
+    // Animation for display pic
+    AnimationOnChosenPick()
+    // JavaScript is Madman
+    isChosenClick ? isChosenClick = !isChosenClick : isChosenClick = !isChosenClick
 })
 
 // Disabled button when theres a winner
@@ -148,5 +162,22 @@ const DisabledButtons = () => {
 const EnabledButtons = () => {
     buttonsRSP.forEach((buttonRSP, index) => {
         buttonRSP.disabled = false
+    })
+}
+
+// Animation for chosen pick
+const AnimationOnChosenPick = () => {
+    displayPick.forEach(displaypick => {
+        if(isChosenClick){
+            // removes and adds class list to make an animation
+            displaypick.classList.remove("fadeInFirst")
+            displaypick.classList.remove("fadeInSecond")
+            displaypick.classList.add('fadeInSecond')
+        }else{
+            // removes and adds class list to make an animation
+            displaypick.classList.remove("fadeInFirst")
+            displaypick.classList.remove("fadeInSecond")
+            displaypick.classList.add('fadeInFirst')
+        }
     })
 }
