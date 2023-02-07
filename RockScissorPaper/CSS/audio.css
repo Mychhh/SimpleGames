@@ -1,0 +1,44 @@
+:root{
+    --AUDIO-BUTTON-SIZE: 2.5rem;
+}
+.audio__button{
+    border: 0;
+    position: absolute;
+    width: var(--AUDIO-BUTTON-SIZE);
+    height: var(--AUDIO-BUTTON-SIZE);
+    left: 0;
+    top: 50vh;
+    cursor: pointer;
+    background-color: transparent;
+}
+.audio__button_img{
+    width: var(--AUDIO-BUTTON-SIZE);
+    height: var(--AUDIO-BUTTON-SIZE);
+}
+
+.audio__button_img.audio__button_img_activePositive{
+    animation-name: rotateAudioButtonPositive;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+}
+.audio__button_img.audio__button_img_activeNegative{
+    animation-name: rotateAudioButtonNegative;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes rotateAudioButtonPositive {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotateAudioButtonNegative {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
+}

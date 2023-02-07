@@ -13,8 +13,9 @@
     --BUTTON-COLOR: #5D4038;
     --BUTTON-TEXT-COLOR: #F79A13;
     --FONT-SIZE-BIG: clamp(0.5rem, 2vw, 2rem);
+    --FONT-SIZE-MEDIUM: clamp(0.5rem, 2vw, 1.7rem);
     --FONT-SIZE: clamp(1rem, 2vh, 1rem);
-    --PADDING: var(--FONT-SIZE)
+    --PADDING: var(--FONT-SIZE);
 }
 body{
     background: var(--MAIN-BG-COLOR);
@@ -31,17 +32,6 @@ figcaption{
     font-size: var(--FONT-SIZE-BIG);
 }
 
-/* Rock, Scissor, Paper, and Restart Button */
-.button, #restart-button{
-    border: 0;
-    cursor: pointer;
-    background-color: var(--BUTTON-COLOR);
-    color: var(--BUTTON-TEXT-COLOR);
-    font-size: var(--FONT-SIZE-BIG);
-    width: 100%;
-    height: 2em;
-    border-radius: 1em;
-}
 .container{
     width: 90vw;
     height: 100%;
@@ -58,7 +48,6 @@ figcaption{
     gap: var(--PADDING);
     padding: var(--PADDING);
 }
-
 /* Display Container*/
 .display{
     display: grid;
@@ -93,6 +82,23 @@ figcaption{
     width: clamp(7rem, 25vw, 20rem);
     height: auto;
 }
+/* .display__pick.active_pick{
+    border: 1px solid darkgreen;
+    animation-name: display__pickAnimation;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in;
+}
+Display pick animation
+@keyframes display__pickAnimation {
+    0%{
+        opacity: 0;
+        display: none;
+    }
+    100%{
+        opacity: 1;
+        display: block;
+    }
+} */
 :is(.display__pick_text, .display__choices){
     color: var(--BUTTON-COLOR);
 }
@@ -104,6 +110,17 @@ figcaption{
     font-size: clamp(0.3rem, 2vw, 1rem);
 }
 
+/* Rock, Scissor, Paper, and Restart Button */
+.button, #restart-button{
+    border: 0;
+    cursor: pointer;
+    background-color: var(--BUTTON-COLOR);
+    color: var(--BUTTON-TEXT-COLOR);
+    font-size: var(--FONT-SIZE-MEDIUM);
+    width: 100%;
+    height: 2em;
+    border-radius: 1em;
+}
 /* Buttons */
 .buttons-container{
     width: 90%;
@@ -123,6 +140,39 @@ figcaption{
     grid-template-columns: repeat(3, 1fr);
     gap: var(--PADDING);
 }
+#restart-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#restart-button > img{
+    width: clamp(1rem, 4vw, 3rem);
+    margin-top: 5px;
+}
+/* Button Animation */
+#restart-button:hover{
+    transition-property: all;
+    transition-duration: 0.3s;
+    
+    background-color: var(--BUTTON-TEXT-COLOR);
+    color: var(--BUTTON-COLOR);
+    border: 2px solid var(--BUTTON-COLOR);
+}
+.button:hover{
+    transform: scale(1.02);
+    transition-property: all;
+    transition-duration: 0.3s;
+
+    background-color: var(--BUTTON-TEXT-COLOR);
+    color: var(--BUTTON-COLOR);
+    border: 2px solid var(--BUTTON-COLOR);
+}
+.button:disabled, #restart-button:disabled{
+    cursor: not-allowed;
+    background-color: grey;
+    color: var(--BUTTON-TEXT-COLOR);
+}
+
 /* EXTRA SMALL SCREEN */
 @media screen and (max-width: 481px) {
     .display{
@@ -156,6 +206,9 @@ figcaption{
     .display__computer_container{
         gap: 0.5rem;
     }
+    #restart-button > img{
+    margin-top: 0px;
+    }
 }
 /* SMALL SCREEN */
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -182,6 +235,9 @@ figcaption{
     }
     .display__computer_container{
         gap: 0.5rem;
+    }
+    #restart-button > img{
+    margin-top: 0px;
     }
 }
 /* MEDIUM SCREEN */

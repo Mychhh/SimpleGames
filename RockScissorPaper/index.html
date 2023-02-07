@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/audio.css">
     <!-- JavaScript -->
-    <script src="index.js" defer></script>
-    <title>Document</title>
+    <script src="./JS/index.js" defer></script>
+    <script src="./JS/audio.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./Img/Loader.png">
+    <title>Rock Scissor Paper</title>
 </head>
 
 <body>
@@ -59,7 +63,10 @@
 
         <div class="buttons-container">
             <div class="restart">
-                <button id="restart-button" type="button">Restart</button>
+                <button id="restart-button" type="button">
+                    <img src="./Img/restart-svgrepo-com.svg" alt="restart" width="40" height="40">
+                    Restart
+                </button>
             </div>
 
             <div class="buttons">
@@ -69,6 +76,18 @@
             </div>
         </div>
     </div>
+
+    <div class="audio">
+
+        <button type="button" class="audio__button"><img src="./Img/audio-on.svg" alt="audio-on-or-off" class="audio__button_img" width="30px" height="30px"></button>
+
+        <!-- controls autoplay loop -->
+        <audio id="background_audio" autoplay play loop>
+            <source src="./Audio/Sponge Cave Spelunking - Yoshi's Woolly World (OST).mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
 </body>
 
 </html>

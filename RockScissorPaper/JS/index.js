@@ -43,8 +43,14 @@ buttonsRSP.forEach(buttonRSP => buttonRSP.addEventListener('click', (e) => {
             userChoiceImgSrc = "./Img/Paper.png"
             break
     }
-    console.log(userChoice)
     userPick.src = userChoiceImgSrc
+
+    // removes and adds class list to make an animation
+    computerPick.classList.add('active_pick')
+    userPick.classList.add('active_pick')
+
+    // computerPick.classList.remove('active_pick')
+    // userPick.classList.remove('active_pick')
 
     if(userScore === 5){
         displayMessage.innerHTML = 'You Win'
