@@ -10,6 +10,16 @@
     top: 50vh;
     cursor: pointer;
     background-color: transparent;
+
+    transform: translateX(0px);
+    transition-duration: 0.3s;
+    animation-timing-function: ease-in;
+}
+.audio__button:disabled{
+    transform: translateX(-50px);
+    transition-duration: 0.3s;
+    animation-timing-function: ease-in;
+    animation-delay: 1s;
 }
 .audio__button_img{
     width: var(--AUDIO-BUTTON-SIZE);

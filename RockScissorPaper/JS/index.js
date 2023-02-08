@@ -7,6 +7,9 @@ const userPick = document.getElementById('display__user-pick')
 const computerPick = document.getElementById('display__computer-pick')
 const displayPick = document.querySelectorAll('.display__pick')
 
+// Audio Button
+const audioButton = document.querySelector('.audio__button')
+
 const buttonsRSP = document.querySelectorAll('.button')
 const restartButton = document.getElementById('restart-button')
 
@@ -135,6 +138,11 @@ const getResult = () => {
 
 // Restart Button
 restartButton.addEventListener('click', () => {
+    // Fade in Background music function from audio.js line 54
+    fadeInBackgroundMusic()
+    isGameStart = false
+    audioButton.disabled = false
+
     userScore = 0
     computerScore = 0
 
@@ -192,6 +200,7 @@ const AnimationOnChosenPick = () => {
 // pause background music on game start
 const pauseBackgroundMusicOnStart = () => {
     if(isGameStart){
+        audioButton.disabled = true
         backgroundMusicImage.src = "./Img/audio-off.svg"
         backgroundMusicImage.classList.remove('audio__button_img_activeNegative')
         backgroundMusicImage.classList.add('audio__button_img_activePositive')
