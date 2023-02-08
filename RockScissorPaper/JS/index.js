@@ -20,8 +20,10 @@ const displayMessage = document.getElementById('display__message-box')
 // Winner and Loser audio
 const winnerAudio = document.getElementById('winner_audio')
 const loserAudio = document.getElementById('loser_audio')
-// Background music
-// const indexBackgroundMusic = document.getElementById('background_audio')
+// user/computer win
+const userWinAudio = document.getElementById('user_win')
+const computerWinAudio = document.getElementById('computer_win')
+
 
 // Score Declaration
 let userScore = 0
@@ -110,26 +112,32 @@ const getResult = () => {
         result = "It's a draw"
     }else if (userChoice === 'Rock' && computerChoice === 'Scissor'){
         result = "You win"
+        userWinAudio.play()
         userScore++
         yourScoreDisplay.innerHTML = userScore
     }else if (userChoice === 'Rock' && computerChoice === 'Paper'){
         result = "You lose"
+        computerWinAudio.play()
         computerScore++
         computerScoreDisplay.innerHTML = computerScore
     }else if (userChoice === 'Scissor' && computerChoice === 'Paper'){
         result = "You win"
+        userWinAudio.play()
         userScore++
         yourScoreDisplay.innerHTML = userScore
     }else if (userChoice === 'Scissor' && computerChoice === 'Rock'){
         result = "You lose"
+        computerWinAudio.play()
         computerScore++
         computerScoreDisplay.innerHTML = computerScore
     }else if (userChoice === 'Paper' && computerChoice === 'Rock'){
         result = "You win"
+        userWinAudio.play()
         userScore++
         yourScoreDisplay.innerHTML = userScore
     }else if (userChoice === 'Paper' && computerChoice === 'Scissor'){
         result = "You lose"
+        computerWinAudio.play()
         computerScore++
         computerScoreDisplay.innerHTML = computerScore
     }
