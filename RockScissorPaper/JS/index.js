@@ -24,6 +24,8 @@ const loserAudio = document.getElementById('loser_audio')
 let userScore = 0
 let computerScore = 0
 
+let isGameStart = false
+
 // Choices Declaration
 let userChoice
 let userChoiceImgSrc
@@ -35,6 +37,11 @@ let isChosenClick = true
 
 // Adds event listener to all buttons and choose what choice they want
 buttonsRSP.forEach(buttonRSP => buttonRSP.addEventListener('click', (e) => {
+    isGameStart = true
+    // fadeOut Background music function from audio.js line 39
+    fadeOutBackgroundMusic()
+    pauseBackgroundMusicOnStart()
+
     userChoice = e.target.id
 
     yourChoiceDisplay.innerHTML = userChoice
@@ -180,4 +187,13 @@ const AnimationOnChosenPick = () => {
             displaypick.classList.add('fadeInFirst')
         }
     })
+}
+
+// pause background music on game start
+const pauseBackgroundMusicOnStart = () => {
+    if(isGameStart){
+        backgroundMusicImage.src = "./Img/audio-off.svg"
+        backgroundMusicImage.classList.remove('audio__button_img_activeNegative')
+        backgroundMusicImage.classList.add('audio__button_img_activePositive')
+    }
 }
